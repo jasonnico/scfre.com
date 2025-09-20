@@ -1,0 +1,733 @@
+
+
+
+
+
+
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Salma's Care for Rural Elderly</title>
+    <meta name="description" content="View our work in action through our gallery of health checks, food distribution, and community support activities in Jinja, Uganda.">
+    <meta name="robots" content="max-image-preview:large">
+
+    <!-- Google Fonts for a modern look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon links (using original logo) -->
+    <link rel="icon" href="https://scfre.org/wp-content/uploads/2021/10/cropped-SCFRE-LOGO-32x32.jpeg" sizes="32x32"/>
+    <link rel="icon" href="https://scfre.org/wp-content/uploads/2021/10/cropped-SCFRE-LOGO-192x192.jpeg" sizes="192x192"/>
+    <link rel="apple-touch-icon" href="https://scfre.org/wp-content/uploads/2021/10/cropped-SCFRE-LOGO-180x180.jpeg"/>
+
+    <style>
+        /* CSS Reset and Global Styles */
+        :root {
+            --primary-color: #0d47a1; /* A deep, trustworthy blue */
+            --secondary-color: #16173d; /* Original dark background */
+            --accent-color: #ffc107; /* A warm, inviting yellow */
+            --text-color: #333;
+            --light-text-color: #f4f4f4;
+            --background-color: #ffffff;
+            --light-background-color: #f9f9f9;
+            --error-color: #d32f2f;
+            --font-body: 'Poppins', sans-serif;
+            --font-headings: 'Lora', serif;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: #ffca2c;
+            transform: translateY(-3px);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-headings);
+            line-height: 1.3;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        h2 {
+           font-size: 2.5rem;
+           margin-bottom: 3rem;
+           text-align: center;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        /* Header & Navigation */
+        .site-header {
+            background: #fff;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .main-nav ul li {
+            margin-left: 30px;
+        }
+
+        .main-nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .main-nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .main-nav ul li.active a {
+            color: var(--primary-color);
+        }
+
+        .main-nav ul li.active a::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        
+        .hamburger .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--primary-color);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Gallery Section */
+        #gallery {
+            background-color: #fff;
+        }
+        .filter-buttons {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .filter-btn {
+            background: none;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .gallery-grid {
+            display: grid;
+            /* Changed minmax to 350px to make images larger */
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 8px;
+            position: relative;
+            display: block; /* Default state */
+            animation: fadeIn 0.5s;
+            aspect-ratio: 4 / 3; /* Maintain a consistent aspect ratio */
+        }
+        .gallery-item.hide {
+            display: none;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        /* Sensitive content blur */
+        .gallery-item.sensitive img {
+            filter: blur(14px);
+            transition: filter 0.3s ease, transform 0.4s ease;
+        }
+        .gallery-item.sensitive.revealed img {
+            filter: none;
+        }
+        .gallery-item .sensitive-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(13,71,161,0.9);
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            pointer-events: none;
+        }
+        .gallery-item.revealed .sensitive-badge {
+            display: none;
+        }
+        .gallery-item .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        /* Video Items Styling */
+        .gallery-item.video-item {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item.video-item iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .gallery-item.video-item .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none; /* Allow clicks to pass through to iframe */
+        }
+
+        .gallery-item.video-item:hover .overlay {
+            opacity: 1;
+        }
+
+        /* Lightbox Modal for Gallery */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            animation: zoomIn 0.6s;
+        }
+        @keyframes zoomIn {
+            from {transform:scale(0)} 
+            to {transform:scale(1)}
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .lightbox-close:hover, .lightbox-close:focus {
+            color: #bbb;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: #1a1a1a;
+            color: #aaa;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .site-footer p {
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 2rem;
+            }
+
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 75px; /* Height of header */
+                left: 0;
+                width: 100%;
+                background: white;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            
+            .main-nav.active {
+                display: block;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .main-nav ul li {
+                margin: 15px 0;
+                text-align: center;
+            }
+
+            .hamburger {
+                display: block;
+            }
+            
+            /* Animate hamburger to 'X' */
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            
+            /* Mobile Gallery Layout */
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            /* Mobile Filter Buttons */
+            .filter-buttons {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+                margin-bottom: 30px;
+            }
+            
+            .filter-btn {
+                padding: 8px 12px;
+                margin: 2px;
+                font-size: 0.85rem;
+                min-width: auto;
+                flex: 1;
+                max-width: calc(50% - 4px);
+                text-align: center;
+            }
+            
+            /* Mobile Video Items */
+            .gallery-item.video-item {
+                margin: 0 auto;
+                max-width: 100%;
+                width: 100%;
+            }
+            
+            .gallery-item.video-item iframe {
+                border-radius: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="https://scfre.org/wp-content/uploads/2021/10/SCFRE-LOGO.jpeg" alt="Salma's Care Logo">
+                <span>Salma's Care</span>
+            </a>
+            <nav class="main-nav" id="main-nav">
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#what-we-do">What We Do</a></li>
+                    <li><a href="index.html#our-team">Our Team</a></li>
+                    <li><a href="index.html#donations">Supporters</a></li>
+                    <li class="active"><a href="gallery.html">Gallery</a></li>
+                    <li><a href="index.html#contact">How to Help</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="gallery">
+            <div class="container">
+                <h2>Our Work in Action</h2>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="health">Health Checks</button>
+                    <button class="filter-btn" data-filter="food">Essential Supplies</button>
+                    <button class="filter-btn" data-filter="treatment">Treatment Care</button>
+                    <button class="filter-btn" data-filter="video">Videos</button>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-category="food">
+                        <img src="gallery/essential suplies_2024.jpg" alt="Essential supplies 2024">
+                        <div class="overlay">Essential Supplies - 2024</div>
+                    </div>
+                    <div class="gallery-item" data-category="food">
+                        <img src="gallery/essential suplies_4_2023.jpg" alt="Essential supplies event 4 2023">
+                        <div class="overlay">Essential Supplies - 2023</div>
+                    </div>
+                    <div class="gallery-item" data-category="food">
+                        <img src="gallery/essential suplies_5_2023.jpg" alt="Essential supplies event 5 2023">
+                        <div class="overlay">Essential Supplies - 2023</div>
+                    </div>
+                    <div class="gallery-item" data-category="food">
+                        <img src="gallery/Food-event_2_2024.jpg" alt="Food distribution event 2 2024">
+                        <div class="overlay">Essential Supplies - 2024</div>
+                    </div>
+                    <div class="gallery-item" data-category="food">
+                        <img src="gallery/Food-event_3_2024.jpg" alt="Food distribution event 3 2024">
+                        <div class="overlay">Essential Supplies - 2024</div>
+                    </div>
+                    <div class="gallery-item" data-category="health">
+                        <img src="gallery/Health-event_1_2023.jpg" alt="Health check event 1 2023">
+                        <div class="overlay">Health Check - 2023</div>
+                    </div>
+                    <div class="gallery-item" data-category="health">
+                        <img src="gallery/Health-event_2_2023.jpg" alt="Health check event 2 2023">
+                        <div class="overlay">Health Check - 2023</div>
+                    </div>
+                    <div class="gallery-item" data-category="health">
+                        <img src="gallery/Health-event_3_2023.jpg" alt="Health check event 3 2023">
+                        <div class="overlay">Health Check - 2023</div>
+                    </div>
+                    <div class="gallery-item" data-category="health">
+                        <img src="gallery/Health-event_4_2023.jpg" alt="Health check event 4 2023">
+                        <div class="overlay">Health Check - 2023</div>
+                    </div>
+                    <div class="gallery-item" data-category="health">
+                        <img src="gallery/Health-event_5_2023.jpg" alt="Health check event 5 2023">
+                        <div class="overlay">Health Check - 2023</div>
+                    </div>
+                    <div class="gallery-item" data-category="health">
+                        <img src="gallery/Health-event_6_2023.jpg" alt="Health check event 6 2023">
+                        <div class="overlay">Health Check - 2023</div>
+                    </div>
+                    <div class="gallery-item" data-category="health">
+                        <img src="gallery/Health-event_7_2023.jpg" alt="Health check event 7 2023">
+                        <div class="overlay">Health Check - 2023</div>
+                    </div>
+                    <div class="gallery-item" data-category="health">
+                        <img src="gallery/Health-event_8_2023.jpg" alt="Health check event 8 2023">
+                        <div class="overlay">Health Check - 2023</div>
+                    </div>
+                    <div class="gallery-item" data-category="treatment">
+                        <img src="gallery/Treatment_1_2023--Sensitive.jpg" alt="Treatment care 1 2023">
+                        <div class="overlay">Treatment Care - 2023</div>
+                    </div>
+                    <div class="gallery-item" data-category="treatment">
+                        <img src="gallery/Treatment_2_2023.jpg" alt="Treatment care 2 2023">
+                        <div class="overlay">Treatment Care - 2023</div>
+                    </div>
+                    <div class="gallery-item" data-category="treatment">
+                        <img src="gallery/Treatment_3_2023.jpg" alt="Treatment care 3 2023">
+                        <div class="overlay">Treatment Care - 2023</div>
+                    </div>
+                    <div class="gallery-item" data-category="treatment">
+                        <img src="gallery/Treatment_4_2023-Sensitive.jpg" alt="Treatment care 4 2023">
+                        <div class="overlay">Treatment Care - 2023</div>
+                    </div>
+                    <div class="gallery-item" data-category="treatment">
+                        <img src="gallery/Treatment_5_2023-Sensitive.jpg" alt="Treatment care 5 2023">
+                        <div class="overlay">Treatment Care - 2023</div>
+                    </div>
+                    <div class="gallery-item" data-category="treatment">
+                        <img src="gallery/Treatment_6_2023-Sensitive.jpg" alt="Treatment care 6 2023">
+                        <div class="overlay">Treatment Care - 2023</div>
+                    </div>
+                    <div class="gallery-item" data-category="treatment">
+                        <img src="gallery/Treatment_7_2023.jpg" alt="Treatment care 7 2023">
+                        <div class="overlay">Treatment Care - 2023</div>
+                    </div>
+                    <div class="gallery-item" data-category="treatment">
+                        <img src="gallery/Treatment_8_2023-Sensitive.jpg" alt="Treatment care 8 2023">
+                        <div class="overlay">Treatment Care - 2023</div>
+                    </div>
+                    <div class="gallery-item" data-category="treatment">
+                        <img src="gallery/Treatment_9_2025.jpg" alt="Treatment care 9 2025">
+                        <div class="overlay">Treatment Care - 2025</div>
+                    </div>
+                    <div class="gallery-item" data-category="treatment">
+                        <img src="gallery/Treatment_10_2025-Sensitive.jpg" alt="Treatment care 10 2025">
+                        <div class="overlay">Treatment Care - 2025</div>
+                    </div>
+                    <div class="gallery-item video-item" data-category="video">
+                        <iframe src="https://www.youtube.com/embed/j--ovYAAYm4" title="Salma's Care for Rural Elderly - Community Health Initiative" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="overlay">Community Health Initiative</div>
+                    </div>
+                    <div class="gallery-item video-item" data-category="video">
+                        <iframe src="https://www.youtube.com/embed/6GKNS_vyDqo" title="Wound Dressing Community Initiative" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="overlay">Wound Dressing Initiative</div>
+                    </div>
+                    <div class="gallery-item video-item" data-category="video">
+                        <iframe src="https://www.youtube.com/embed/FDm0mTZqrpY" title="Elderly Care and Support Activities" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="overlay">Elderly Care Activities</div>
+                    </div>
+                    <div class="gallery-item video-item" data-category="video">
+                        <iframe src="https://www.youtube.com/embed/8zClf1Y-3gE" title="Community Health Outreach Program" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="overlay">Health Outreach Program</div>
+                    </div>
+                    <div class="gallery-item video-item" data-category="video">
+                        <iframe src="https://www.youtube.com/embed/_rkn75sc8eg" title="Rural Elderly Support Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="overlay">Rural Elderly Support</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Lightbox Modal -->
+        <div id="gallery-lightbox" class="lightbox-modal">
+            <span class="lightbox-close">&times;</span>
+            <img class="lightbox-content" id="lightbox-img">
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Copyright &copy; 2025 — Salma's Care for Rural Elderly. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile navigation toggle
+            const hamburger = document.getElementById('hamburger');
+            const nav = document.getElementById('main-nav');
+            
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                nav.classList.toggle('active');
+            });
+
+            // Close mobile menu when a link is clicked
+            const navLinks = document.querySelectorAll('.main-nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (hamburger.classList.contains('active')) {
+                        hamburger.classList.remove('active');
+                        nav.classList.remove('active');
+                    }
+                });
+            });
+
+            // Gallery Filtering Logic
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            // Mark ONLY images with 'Sensitive' in filename as sensitive (blur by default)
+            Array.from(galleryItems).forEach(item => {
+                if (item.getAttribute('data-category') === 'treatment') {
+                    const imgEl = item.querySelector('img');
+                    if (imgEl && /sensitive/i.test(imgEl.getAttribute('src'))) {
+                        item.classList.add('sensitive');
+                        const badge = document.createElement('div');
+                        badge.className = 'sensitive-badge';
+                        badge.textContent = 'Sensitive – tap to reveal';
+                        item.appendChild(badge);
+                    }
+                }
+            });
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Set active class on button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    const filter = button.getAttribute('data-filter');
+
+                    galleryItems.forEach(item => {
+                        item.style.display = 'none'; // Hide all items initially
+                        if (item.getAttribute('data-category') === filter || filter === 'all') {
+                           item.style.display = 'block'; // Show matched items
+                        }
+                    });
+                });
+            });
+
+            // Gallery Lightbox Logic
+            const lightbox = document.getElementById('gallery-lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const closeLightbox = document.querySelector('.lightbox-close');
+
+            galleryItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    // Skip video items
+                    if (item.classList.contains('video-item')) {
+                        return;
+                    }
+
+                    // If sensitive and not yet revealed, reveal on first click, do not open lightbox
+                    if (item.classList.contains('sensitive') && !item.classList.contains('revealed')) {
+                        item.classList.add('revealed');
+                        // Prevent opening lightbox on the first click
+                        e.stopPropagation();
+                        e.preventDefault();
+                        return;
+                    }
+
+                    // Open lightbox for regular or already revealed items
+                    lightbox.style.display = 'block';
+                    lightboxImg.src = item.querySelector('img').src;
+                });
+            });
+
+            if (closeLightbox) {
+                closeLightbox.addEventListener('click', () => {
+                    lightbox.style.display = 'none';
+                });
+            }
+            
+            if (lightbox) {
+                lightbox.addEventListener('click', (e) => {
+                    if(e.target === lightbox) {
+                        lightbox.style.display = 'none';
+                    }
+                });
+            }
+
+        });
+    </script>
+
+</body>
+</html>

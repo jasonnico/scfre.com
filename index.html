@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salma's Care for Rural Elderly - Jinja, Uganda</title>
+    <meta name="description" content="Salma's Care for Rural Elderly is a charity dedicated to improving the quality of life for the elderly in Jinja, Uganda through basic healthcare and support.">
+    <meta name="robots" content="max-image-preview:large">
+
+    <!-- Google Fonts for a modern look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon links (using original logo) -->
+    <link rel="icon" href="https://scfre.org/wp-content/uploads/2021/10/cropped-SCFRE-LOGO-32x32.jpeg" sizes="32x32"/>
+    <link rel="icon" href="https://scfre.org/wp-content/uploads/2021/10/cropped-SCFRE-LOGO-192x192.jpeg" sizes="192x192"/>
+    <link rel="apple-touch-icon" href="https://scfre.org/wp-content/uploads/2021/10/cropped-SCFRE-LOGO-180x180.jpeg"/>
+
+    <style>
+        /* CSS Reset and Global Styles */
+        :root {
+            --primary-color: #0d47a1; /* A deep, trustworthy blue */
+            --secondary-color: #16173d; /* Original dark background */
+            --accent-color: #ffc107; /* A warm, inviting yellow */
+            --text-color: #333;
+            --light-text-color: #f4f4f4;
+            --background-color: #ffffff;
+            --light-background-color: #f9f9f9;
+            --error-color: #d32f2f;
+            --font-body: 'Poppins', sans-serif;
+            --font-headings: 'Lora', serif;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: #ffca2c;
+            transform: translateY(-3px);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-headings);
+            line-height: 1.3;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        h2 {
+           font-size: 2.5rem;
+           margin-bottom: 3rem;
+           text-align: center;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        /* Header & Navigation */
+        .site-header {
+            background: #fff;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .main-nav ul li {
+            margin-left: 30px;
+        }
+
+        .main-nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .main-nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .main-nav ul li.active a {
+            color: var(--primary-color);
+        }
+
+        .main-nav ul li.active a::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        
+        .hamburger .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--primary-color);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(rgba(13, 71, 161, 0.7), rgba(0, 0, 0, 0.6)), url('https://scfre.org/wp-content/uploads/2022/02/7.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--light-text-color);
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        
+        .hero-content .motto {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            font-family: var(--font-headings);
+        }
+
+        .hero-content .location {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Content Sections */
+        .about-section {
+            background-color: var(--light-background-color);
+        }
+
+        .content-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--accent-color);
+            padding-left: 20px;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #555;
+            text-align: left;
+        }
+        
+        blockquote p {
+            margin-bottom: 1rem;
+        }
+        
+        blockquote p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* What We Do Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+        
+        .service-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        
+        .service-card ul {
+            list-style-position: inside;
+            padding-left: 0;
+        }
+        
+        .service-card li {
+            margin-bottom: 10px;
+        }
+
+        /* Who We Are Section */
+        .team-section {
+            background-color: var(--light-background-color);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px; /* Increased gap for better spacing */
+            margin-bottom: 3rem;
+        }
+        
+        .team-member {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 15px;
+            border: 4px solid var(--accent-color);
+        }
+        
+        .team-member h4 {
+            color: var(--text-color);
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .team-member .role {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .team-member .description {
+            font-size: 0.9rem;
+            font-style: normal;
+            color: #555;
+        }
+        
+        /* Donations Timeline Section */
+        .supporters-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .timeline-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -12px;
+            background-color: white;
+            border: 4px solid var(--accent-color);
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-left {
+            left: 0;
+        }
+
+        .timeline-right {
+            left: 50%;
+        }
+
+        .timeline-right::after {
+            left: -8px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        
+        .timeline-content img {
+            margin-bottom: 15px;
+        }
+        
+        .timeline-content h4 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+
+        /* How to Help / Contact Section */
+        .contact-section {
+            background-color: var(--secondary-color);
+            color: var(--light-text-color);
+            text-align: center;
+        }
+        
+        .contact-section h2 {
+            color: #fff;
+        }
+
+        .contact-section p {
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+        }
+
+        /* Modal & Form Styles */
+        .modal-overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-overlay.active {
+            display: flex; /* Shown when active */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            padding: 30px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from {transform: translateY(-50px); opacity: 0;}
+            to {transform: translateY(0); opacity: 1;}
+        }
+
+        .close-button {
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+        }
+
+        #contact-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #contact-form h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        #contact-form input,
+        #contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: var(--font-body);
+            margin-bottom: 15px;
+        }
+        
+        #contact-form button {
+            align-self: flex-start;
+            margin-top: 10px;
+            width: auto;
+        }
+
+
+        /* Footer */
+        .site-footer {
+            background-color: #1a1a1a;
+            color: #aaa;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .site-footer p {
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 2rem;
+            }
+
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 75px; /* Height of header */
+                left: 0;
+                width: 100%;
+                background: white;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            
+            .main-nav.active {
+                display: block;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .main-nav ul li {
+                margin: 15px 0;
+                text-align: center;
+            }
+
+            .hamburger {
+                display: block;
+            }
+            
+            /* Animate hamburger to 'X' */
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            /* Timeline responsive adjustments */
+            .timeline-container::after {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 60px;
+                padding-right: 15px;
+            }
+            
+            .timeline-item::after {
+                left: 10px;
+            }
+            
+            .timeline-left, .timeline-right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="https://scfre.org/wp-content/uploads/2021/10/SCFRE-LOGO.jpeg" alt="Salma's Care Logo">
+                <span>SCFRE</span>
+            </a>
+            <nav class="main-nav" id="main-nav">
+                <ul>
+                    <li class="active"><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#what-we-do">What We Do</a></li>
+                    <li><a href="#our-team">Our Team</a></li>
+                    <li><a href="#donations">Supporters</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="#contact">How to Help</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container hero-content">
+                <span class="location">JINJA, UGANDA</span>
+                <h1>Salma's Care for Rural Elderly</h1>
+                <p class="motto">Motto: Healthy Living for the Elderly</p>
+                <a href="#contact" class="btn">Help Us Today</a>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container content-wrapper">
+                <h2>Introduction</h2>
+                <blockquote>
+                    <p>My name is Salma Hassan. I am a registered Adult Nurse working as a General Practice Nurse. My background is Accident and Emergency.</p>
+                    <p>I also have experience in general nursing (Elderly care, Sexual Health, and travel health). My passion is looking after the elderly, diabetes prevention and health promotion.</p>
+                </blockquote>
+                 <h2>My Vision</h2>
+                <blockquote>
+                    <p>Throughout my travels in rural Africa, particularly Uganda, I am confronted with the elderly living conditions and their quality of life. A large population does not receive basic services like yearly blood tests, or even access to day-to-day basic needs.</p>
+                    <p>I often imagine how the quality of life of elderly people in Africa would change for the better if they had the same services offered to the elderly living in the UK and other developed countries.</p>
+                    <p>Africans tend to take care of their elderly; however, there is a large population of elderly adults who don’t have access to basic care. They tend to be forgotten, with priority given to children and young adults, ignoring the fact that we are all going to be old one day. Caring for the elderly is not only a responsibility that falls on each one of us, but it is also a blessing.</p>
+                    <p>As a nurse, I am blessed to have gained a lot of knowledge in health care and I feel it is my duty to do my absolute best in areas I can give back, starting with elderly care in rural Uganda, a country that has now become my second home. It is my prayer and hope that one day I would be able to extend this service gradually all over rural Africa.</p>
+                </blockquote>
+            </div>
+        </section>
+        
+        <section id="what-we-do">
+            <div class="container">
+                <h2>What We Do</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>Food and Nutrition</h3>
+                        <p>We provide essential food supplies and nutritional support to ensure the elderly maintain a healthy diet, which is crucial for their overall well-being.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Health and Wellness</h3>
+                        <ul>
+                            <li>Basic health checks (blood pressure, blood sugar)</li>
+                            <li>Wound care and management</li>
+                            <li>Medication reminders and support</li>
+                            <li>Health education on hygiene and sanitation</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <h3>Social and Emotional Support</h3>
+                        <p>We offer companionship and social interaction to combat loneliness and isolation, which are common issues among the elderly in rural areas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="our-team" class="team-section">
+            <div class="container">
+                <h2>Our Team</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="https://scfre.org/wp-content/uploads/2022/02/CEO-225x300.jpg" alt="Salma K. Hassan">
+                        <h4>Salma K. Hassan</h4>
+                        <p class="role">SCFRE CEO & Founder</p>
+                        <p class="description">Salma’s passion is caring for all those less fortunate to get basic health care needs especially the elderly. Salma loves quiet life and spending time with loved ones.</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://scfre.org/wp-content/uploads/2024/08/70d6781a-22de-42f1-beb3-cbfdc050ef8e-217x300.jpeg" alt="Hafsa Hassan Kombo">
+                        <h4>Hafsa Hassan Kombo</h4>
+                        <p class="role">Project Coordinator</p>
+                    </div>
+                     <div class="team-member">
+                        <img src="https://scfre.org/wp-content/uploads/2024/08/3f5ec223-0121-422c-90dc-e7eb7b37d06e-225x300.jpeg" alt="Mariam">
+                        <h4>Mariam</h4>
+                        <p class="role">Operations Manager</p>
+                    </div>
+                </div>
+                
+                <h3 style="text-align: center;">Our Volunteers</h3>
+                 <div class="team-grid">
+                    <div class="team-member">
+                        <img src="https://scfre.org/wp-content/uploads/2022/02/team2-225x300.jpg" alt="Bashir Nkutu">
+                        <h4>Bashir Nkutu</h4>
+                        <p class="role">Volunteer</p>
+                        <p class="description">Mr. Bashir enjoys football and helping the needy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="donations">
+            <div class="container">
+                <h2>Our Supporters</h2>
+                <p class="supporters-intro">We are incredibly grateful for the support from our community. Every donation makes a difference in the lives of the elderly we serve. A special thank you to the following individuals and organizations:</p>
+                <div class="timeline-container">
+                    <div class="timeline-item timeline-left">
+                        <div class="timeline-content">
+                            <h4>Suzie (West Way Pharmacy)</h4>
+                            <p>Thank you for the dressings!</p>
+                            <img src="https://scfre.org/wp-content/uploads/2022/02/dressings-300x169.jpg" alt="Donation of dressings">
+                        </div>
+                    </div>
+                    <div class="timeline-item timeline-right">
+                        <div class="timeline-content">
+                            <h4>Ian (Chichele road surgery)</h4>
+                            <p>Thank you for the couches!</p>
+                            <img src="https://scfre.org/wp-content/uploads/2022/02/chichele-road-sugery-225x300.jpg" alt="Donation of couches">
+                        </div>
+                    </div>
+                    <div class="timeline-item timeline-left">
+                        <div class="timeline-content">
+                            <h4>Arleen (USA)</h4>
+                            <p>Thank you for the boxes of clothes and Zimmer frame.</p>
+                            <img src="https://scfre.org/wp-content/uploads/2022/02/zimmerand-clothes-169x300.jpg" alt="Donation of clothes and a Zimmer frame">
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="gallery.html" class="btn">View Our Gallery</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2>How You Can Help</h2>
+                <p>We welcome all donations, including equipment (incontinence pads, clothing, shoes, zimmer frames, dressings) and monetary contributions to help with transport for visits and buying food for the elderly.</p>
+                <button id="open-modal-btn" class="btn">Donate or Get In Touch</button>
+            </div>
+        </section>
+    </main>
+
+    <div id="contact-modal-overlay" class="modal-overlay">
+        <div class="modal-content">
+            <button id="close-modal" class="close-button">&times;</button>
+            <h3>Get In Touch</h3>
+            <form id="contact-form" action="https://submit-form.com/zvy6Za5kC">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Name" required="" />
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email" required="" />
+                <label for="message">Message</label>
+                <textarea
+                id="message"
+                name="message"
+                placeholder="Message"
+                required=""
+                ></textarea>
+                <button type="submit" class="btn">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Copyright &copy; 2025 — Salma's Care for Rural Elderly. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile navigation toggle
+            const hamburger = document.getElementById('hamburger');
+            const nav = document.getElementById('main-nav');
+            
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                nav.classList.toggle('active');
+            });
+
+            // Close mobile menu when a link is clicked
+            const navLinks = document.querySelectorAll('.main-nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (hamburger.classList.contains('active')) {
+                        hamburger.classList.remove('active');
+                        nav.classList.remove('active');
+                    }
+                });
+            });
+
+            // Active nav link on scroll
+            const sections = document.querySelectorAll('main section'); // Target sections inside main
+            const navLi = document.querySelectorAll('.main-nav ul li');
+
+            window.addEventListener('scroll', ()=> {
+                let current = 'home'; // Default to home
+                sections.forEach( section => {
+                    const sectionTop = section.offsetTop;
+                    // Check if section is in viewport
+                    if (pageYOffset >= sectionTop - 150) {
+                        current = section.getAttribute('id');
+                    }
+                })
+                
+                navLi.forEach( li => {
+                    li.classList.remove('active');
+                    if (li.querySelector('a').getAttribute('href').substring(1) === current) {
+                        li.classList.add('active');
+                    }
+                });
+            });
+
+            // Contact Form Modal Logic
+            const openModalBtn = document.getElementById('open-modal-btn');
+            const closeModalBtn = document.getElementById('close-modal');
+            const modalOverlay = document.getElementById('contact-modal-overlay');
+            const contactForm = document.getElementById('contact-form');
+
+            // Open modal
+            if(openModalBtn) {
+                openModalBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if(modalOverlay) {
+                        modalOverlay.classList.add('active');
+                    }
+                });
+            }
+
+            // Function to close modal
+            const closeModal = () => {
+                 if(modalOverlay) {
+                    modalOverlay.classList.remove('active');
+                 }
+            }
+
+            // Close modal events
+            if(closeModalBtn) {
+                closeModalBtn.addEventListener('click', closeModal);
+            }
+            if(modalOverlay) {
+                modalOverlay.addEventListener('click', (e) => {
+                    if (e.target === modalOverlay) {
+                        closeModal();
+                    }
+                });
+            }
+            
+            // Close modal after form submission and redirect locally
+            if(contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    // Allow the form to submit to the external endpoint, then redirect locally
+                    setTimeout(() => {
+                        closeModal();
+                        // Use relative path so it works locally and when hosted
+                        window.location.href = 'thank-you.html';
+                    }, 400);
+                });
+            }
+
+        });
+    </script>
+
+</body>
+</html>
+
