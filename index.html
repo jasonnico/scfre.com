@@ -742,6 +742,7 @@
             <button id="close-modal" class="close-button">&times;</button>
             <h3>Get In Touch</h3>
             <form id="contact-form" action="https://submit-form.com/zvy6Za5kC" method="POST">
+                <input type="hidden" name="_redirect" value="https://scfre.foundation/thank-you.html">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" placeholder="Name" required="" />
                 <label for="email">Email</label>
@@ -846,12 +847,10 @@
             // Handle form submission
             if(contactForm) {
                 contactForm.addEventListener('submit', (e) => {
-                    // Let the form submit naturally to the external endpoint
-                    // The form will redirect to thank-you.html after successful submission
-                    // Close modal after a short delay to allow form processing
-                    setTimeout(() => {
-                        closeModal();
-                    }, 1000);
+                    // Let the form submit naturally to Formspark
+                    // Formspark will handle the redirect to thank-you.html automatically
+                    // Close modal immediately to show form is being processed
+                    closeModal();
                 });
             }
 
