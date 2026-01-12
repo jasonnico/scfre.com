@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salma's Care for Rural Elderly - Jinja, Uganda</title>
-    <meta name="description" content="Salma's Care for Rural Elderly is a charity dedicated to improving the quality of life for the elderly in Jinja, Uganda through basic healthcare and support.">
+    <meta name="description"
+        content="Salma's Care for Rural Elderly is a charity dedicated to improving the quality of life for the elderly in Jinja, Uganda through basic healthcare and support.">
     <meta name="robots" content="max-image-preview:large">
 
     <!-- Google Fonts for a modern look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Poppins:wght@400;600;700&display=swap"
+        rel="stylesheet">
 
     <!-- Favicon links (using local images) -->
-    <link rel="icon" href="images/32x32 px.png" sizes="32x32"/>
-    <link rel="icon" href="images/192x192 px.png" sizes="192x192"/>
-    <link rel="apple-touch-icon" href="images/180x180 px.png"/>
+    <link rel="icon" href="images/32x32 px.png" sizes="32x32" />
+    <link rel="icon" href="images/192x192 px.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="images/180x180 px.png" />
 
     <style>
         /* CSS Reset and Global Styles */
         :root {
-            --primary-color: #0d47a1; /* A deep, trustworthy blue */
-            --secondary-color: #16173d; /* Original dark background */
-            --accent-color: #ffc107; /* A warm, inviting yellow */
+            --primary-color: #0d47a1;
+            /* A deep, trustworthy blue */
+            --secondary-color: #16173d;
+            /* Original dark background */
+            --accent-color: #ffc107;
+            /* A warm, inviting yellow */
             --text-color: #333;
             --light-text-color: #f4f4f4;
             --background-color: #ffffff;
@@ -32,7 +38,9 @@
             --font-headings: 'Lora', serif;
         }
 
-        *, *::before, *::after {
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -74,19 +82,22 @@
             transform: translateY(-3px);
         }
 
-        h1, h2, h3, h4 {
+        h1,
+        h2,
+        h3,
+        h4 {
             font-family: var(--font-headings);
             line-height: 1.3;
             font-weight: 700;
             color: var(--primary-color);
         }
-        
+
         h2 {
-           font-size: 2.5rem;
-           margin-bottom: 3rem;
-           text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
         }
-        
+
         h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
@@ -95,7 +106,7 @@
         section {
             padding: 80px 0;
         }
-        
+
         img {
             max-width: 100%;
             height: auto;
@@ -110,7 +121,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .header-container {
@@ -127,7 +138,7 @@
             font-weight: 700;
             font-size: 1.2rem;
         }
-        
+
         .logo img {
             width: 50px;
             height: 50px;
@@ -162,7 +173,7 @@
             background-color: var(--primary-color);
             transition: width 0.3s ease;
         }
-        
+
         .main-nav ul li.active a {
             color: var(--primary-color);
         }
@@ -177,7 +188,7 @@
             background: none;
             border: none;
         }
-        
+
         .hamburger .bar {
             display: block;
             width: 25px;
@@ -202,7 +213,7 @@
             margin-bottom: 1rem;
             color: #fff;
         }
-        
+
         .hero-content .motto {
             font-size: 1.5rem;
             font-weight: 400;
@@ -240,15 +251,15 @@
             color: #555;
             text-align: left;
         }
-        
+
         blockquote p {
             margin-bottom: 1rem;
         }
-        
+
         blockquote p:last-child {
             margin-bottom: 0;
         }
-        
+
         /* What We Do Section */
         .services-grid {
             display: grid;
@@ -256,19 +267,19 @@
             gap: 30px;
             text-align: left;
         }
-        
+
         .service-card {
             background: #fff;
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
         }
-        
+
         .service-card ul {
             list-style-position: inside;
             padding-left: 0;
         }
-        
+
         .service-card li {
             margin-bottom: 10px;
         }
@@ -277,22 +288,23 @@
         .team-section {
             background-color: var(--light-background-color);
         }
-        
+
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px; /* Increased gap for better spacing */
+            gap: 40px;
+            /* Increased gap for better spacing */
             margin-bottom: 3rem;
         }
-        
+
         .team-member {
             text-align: center;
             background: #fff;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
         }
-        
+
         .team-member img {
             width: 150px;
             height: 150px;
@@ -301,7 +313,7 @@
             margin: 0 auto 15px;
             border: 4px solid var(--accent-color);
         }
-        
+
         .team-member h4 {
             color: var(--text-color);
             font-family: var(--font-body);
@@ -309,19 +321,19 @@
             font-size: 1.1rem;
             margin-bottom: 5px;
         }
-        
+
         .team-member .role {
             font-style: italic;
             color: #666;
             margin-bottom: 10px;
         }
-        
+
         .team-member .description {
             font-size: 0.9rem;
             font-style: normal;
             color: #555;
         }
-        
+
         /* Donations Timeline Section */
         .supporters-intro {
             text-align: center;
@@ -379,19 +391,19 @@
         .timeline-right::after {
             left: -8px;
         }
-        
+
         .timeline-content {
             padding: 20px 30px;
             background-color: white;
             position: relative;
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
         }
-        
+
         .timeline-content img {
             margin-bottom: 15px;
         }
-        
+
         .timeline-content h4 {
             font-size: 1.2rem;
             color: var(--primary-color);
@@ -404,7 +416,7 @@
             color: var(--light-text-color);
             text-align: center;
         }
-        
+
         .contact-section h2 {
             color: #fff;
         }
@@ -416,7 +428,8 @@
 
         /* Modal & Form Styles */
         .modal-overlay {
-            display: none; /* Hidden by default */
+            display: none;
+            /* Hidden by default */
             position: fixed;
             z-index: 2000;
             left: 0;
@@ -424,13 +437,14 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.6);
+            background-color: rgba(0, 0, 0, 0.6);
             justify-content: center;
             align-items: center;
         }
 
         .modal-overlay.active {
-            display: flex; /* Shown when active */
+            display: flex;
+            /* Shown when active */
         }
 
         .modal-content {
@@ -444,8 +458,15 @@
         }
 
         @keyframes fadeIn {
-            from {transform: translateY(-50px); opacity: 0;}
-            to {transform: translateY(0); opacity: 1;}
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         .close-button {
@@ -492,7 +513,7 @@
             font-family: var(--font-body);
             margin-bottom: 15px;
         }
-        
+
         #contact-form button {
             align-self: flex-start;
             margin-top: 10px;
@@ -507,7 +528,7 @@
             padding: 40px 0;
             text-align: center;
         }
-        
+
         .site-footer p {
             font-size: 0.9rem;
         }
@@ -521,13 +542,14 @@
             .main-nav {
                 display: none;
                 position: absolute;
-                top: 75px; /* Height of header */
+                top: 75px;
+                /* Height of header */
                 left: 0;
                 width: 100%;
                 background: white;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             }
-            
+
             .main-nav.active {
                 display: block;
             }
@@ -545,14 +567,16 @@
             .hamburger {
                 display: block;
             }
-            
+
             /* Animate hamburger to 'X' */
             .hamburger.active .bar:nth-child(2) {
                 opacity: 0;
             }
+
             .hamburger.active .bar:nth-child(1) {
                 transform: translateY(8px) rotate(45deg);
             }
+
             .hamburger.active .bar:nth-child(3) {
                 transform: translateY(-8px) rotate(-45deg);
             }
@@ -560,28 +584,30 @@
             .hero-content h1 {
                 font-size: 2.5rem;
             }
-            
+
             /* Timeline responsive adjustments */
             .timeline-container::after {
                 left: 20px;
             }
-            
+
             .timeline-item {
                 width: 100%;
                 padding-left: 60px;
                 padding-right: 15px;
             }
-            
+
             .timeline-item::after {
                 left: 10px;
             }
-            
-            .timeline-left, .timeline-right {
+
+            .timeline-left,
+            .timeline-right {
                 left: 0%;
             }
         }
     </style>
 </head>
+
 <body>
 
     <header class="site-header">
@@ -623,26 +649,40 @@
             <div class="container content-wrapper">
                 <h2>Introduction</h2>
                 <blockquote>
-                    <p>My name is Salma Hassan. I am a registered Adult Nurse working as a General Practice Nurse. My background is Accident and Emergency.</p>
-                    <p>I also have experience in general nursing (Elderly care, Sexual Health, and travel health). My passion is looking after the elderly, diabetes prevention and health promotion.</p>
+                    <p>My name is Salma Hassan. I am a registered Adult Nurse working as a General Practice Nurse. My
+                        background is Accident and Emergency.</p>
+                    <p>I also have experience in general nursing (Elderly care, Sexual Health, and travel health). My
+                        passion is looking after the elderly, diabetes prevention and health promotion.</p>
                 </blockquote>
-                 <h2>My Vision</h2>
+                <h2>My Vision</h2>
                 <blockquote>
-                    <p>Throughout my travels in rural Africa, particularly Uganda, I am confronted with the elderly living conditions and their quality of life. A large population does not receive basic services like yearly blood tests, or even access to day-to-day basic needs.</p>
-                    <p>I often imagine how the quality of life of elderly people in Africa would change for the better if they had the same services offered to the elderly living in the UK and other developed countries.</p>
-                    <p>Africans tend to take care of their elderly; however, there is a large population of elderly adults who don’t have access to basic care. They tend to be forgotten, with priority given to children and young adults, ignoring the fact that we are all going to be old one day. Caring for the elderly is not only a responsibility that falls on each one of us, but it is also a blessing.</p>
-                    <p>As a nurse, I am blessed to have gained a lot of knowledge in health care and I feel it is my duty to do my absolute best in areas I can give back, starting with elderly care in rural Uganda, a country that has now become my second home. It is my prayer and hope that one day I would be able to extend this service gradually all over rural Africa.</p>
+                    <p>Throughout my travels in rural Africa, particularly Uganda, I am confronted with the elderly
+                        living conditions and their quality of life. A large population does not receive basic services
+                        like yearly blood tests, or even access to day-to-day basic needs.</p>
+                    <p>I often imagine how the quality of life of elderly people in Africa would change for the better
+                        if they had the same services offered to the elderly living in the UK and other developed
+                        countries.</p>
+                    <p>Africans tend to take care of their elderly; however, there is a large population of elderly
+                        adults who don’t have access to basic care. They tend to be forgotten, with priority given to
+                        children and young adults, ignoring the fact that we are all going to be old one day. Caring for
+                        the elderly is not only a responsibility that falls on each one of us, but it is also a
+                        blessing.</p>
+                    <p>As a nurse, I am blessed to have gained a lot of knowledge in health care and I feel it is my
+                        duty to do my absolute best in areas I can give back, starting with elderly care in rural
+                        Uganda, a country that has now become my second home. It is my prayer and hope that one day I
+                        would be able to extend this service gradually all over rural Africa.</p>
                 </blockquote>
             </div>
         </section>
-        
+
         <section id="what-we-do">
             <div class="container">
                 <h2>What We Do</h2>
                 <div class="services-grid">
                     <div class="service-card">
                         <h3>Food and Nutrition</h3>
-                        <p>We provide essential food supplies and nutritional support to ensure the elderly maintain a healthy diet, which is crucial for their overall well-being.</p>
+                        <p>We provide essential food supplies and nutritional support to ensure the elderly maintain a
+                            healthy diet, which is crucial for their overall well-being.</p>
                     </div>
                     <div class="service-card">
                         <h3>Health and Wellness</h3>
@@ -655,12 +695,13 @@
                     </div>
                     <div class="service-card">
                         <h3>Social and Emotional Support</h3>
-                        <p>We offer companionship and social interaction to combat loneliness and isolation, which are common issues among the elderly in rural areas.</p>
+                        <p>We offer companionship and social interaction to combat loneliness and isolation, which are
+                            common issues among the elderly in rural areas.</p>
                     </div>
                 </div>
             </div>
         </section>
-        
+
         <section id="our-team" class="team-section">
             <div class="container">
                 <h2>Our Team</h2>
@@ -669,22 +710,26 @@
                         <img src="https://scfre.org/wp-content/uploads/2022/02/CEO-225x300.jpg" alt="Salma K. Hassan">
                         <h4>Salma K. Hassan</h4>
                         <p class="role">SCFRE CEO & Founder</p>
-                        <p class="description">Salma’s passion is caring for all those less fortunate to get basic health care needs especially the elderly. Salma loves quiet life and spending time with loved ones.</p>
+                        <p class="description">Salma’s passion is caring for all those less fortunate to get basic
+                            health care needs especially the elderly. Salma loves quiet life and spending time with
+                            loved ones.</p>
                     </div>
                     <div class="team-member">
-                        <img src="https://scfre.org/wp-content/uploads/2024/08/70d6781a-22de-42f1-beb3-cbfdc050ef8e-217x300.jpeg" alt="Hafsa Hassan Kombo">
+                        <img src="https://scfre.org/wp-content/uploads/2024/08/70d6781a-22de-42f1-beb3-cbfdc050ef8e-217x300.jpeg"
+                            alt="Hafsa Hassan Kombo">
                         <h4>Hafsa Hassan Kombo</h4>
                         <p class="role">Project Coordinator</p>
                     </div>
-                     <div class="team-member">
-                        <img src="https://scfre.org/wp-content/uploads/2024/08/3f5ec223-0121-422c-90dc-e7eb7b37d06e-225x300.jpeg" alt="Mariam">
+                    <div class="team-member">
+                        <img src="https://scfre.org/wp-content/uploads/2024/08/3f5ec223-0121-422c-90dc-e7eb7b37d06e-225x300.jpeg"
+                            alt="Mariam">
                         <h4>Mariam</h4>
                         <p class="role">Operations Manager</p>
                     </div>
                 </div>
-                
+
                 <h3 style="text-align: center;">Our Volunteers</h3>
-                 <div class="team-grid">
+                <div class="team-grid">
                     <div class="team-member">
                         <img src="https://scfre.org/wp-content/uploads/2022/02/team2-225x300.jpg" alt="Bashir Nkutu">
                         <h4>Bashir Nkutu</h4>
@@ -698,27 +743,32 @@
         <section id="donations">
             <div class="container">
                 <h2>Our Supporters</h2>
-                <p class="supporters-intro">We are incredibly grateful for the support from our community. Every donation makes a difference in the lives of the elderly we serve. A special thank you to the following individuals and organizations:</p>
+                <p class="supporters-intro">We are incredibly grateful for the support from our community. Every
+                    donation makes a difference in the lives of the elderly we serve. A special thank you to the
+                    following individuals and organizations:</p>
                 <div class="timeline-container">
                     <div class="timeline-item timeline-left">
                         <div class="timeline-content">
                             <h4>Suzie (West Way Pharmacy)</h4>
                             <p>Thank you for the dressings!</p>
-                            <img src="https://scfre.org/wp-content/uploads/2022/02/dressings-300x169.jpg" alt="Donation of dressings">
+                            <img src="https://scfre.org/wp-content/uploads/2022/02/dressings-300x169.jpg"
+                                alt="Donation of dressings">
                         </div>
                     </div>
                     <div class="timeline-item timeline-right">
                         <div class="timeline-content">
                             <h4>Ian (Chichele road surgery)</h4>
                             <p>Thank you for the couches!</p>
-                            <img src="https://scfre.org/wp-content/uploads/2022/02/chichele-road-sugery-225x300.jpg" alt="Donation of couches">
+                            <img src="https://scfre.org/wp-content/uploads/2022/02/chichele-road-sugery-225x300.jpg"
+                                alt="Donation of couches">
                         </div>
                     </div>
                     <div class="timeline-item timeline-left">
                         <div class="timeline-content">
                             <h4>Arleen (USA)</h4>
                             <p>Thank you for the boxes of clothes and Zimmer frame.</p>
-                            <img src="https://scfre.org/wp-content/uploads/2022/02/zimmerand-clothes-169x300.jpg" alt="Donation of clothes and a Zimmer frame">
+                            <img src="https://scfre.org/wp-content/uploads/2022/02/zimmerand-clothes-169x300.jpg"
+                                alt="Donation of clothes and a Zimmer frame">
                         </div>
                     </div>
                 </div>
@@ -731,7 +781,9 @@
         <section id="contact" class="contact-section">
             <div class="container">
                 <h2>How You Can Help</h2>
-                <p>We welcome all donations, including equipment (incontinence pads, clothing, shoes, zimmer frames, dressings) and monetary contributions to help with transport for visits and buying food for the elderly.</p>
+                <p>We welcome all donations, including equipment (incontinence pads, clothing, shoes, zimmer frames,
+                    dressings) and monetary contributions to help with transport for visits and buying food for the
+                    elderly.</p>
                 <button id="open-modal-btn" class="btn">Donate or Get In Touch</button>
             </div>
         </section>
@@ -748,12 +800,7 @@
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="Email" required="" />
                 <label for="message">Message</label>
-                <textarea
-                id="message"
-                name="message"
-                placeholder="Message"
-                required=""
-                ></textarea>
+                <textarea id="message" name="message" placeholder="Message" required=""></textarea>
                 <button type="submit" class="btn">Send</button>
             </form>
         </div>
@@ -766,11 +813,11 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Mobile navigation toggle
             const hamburger = document.getElementById('hamburger');
             const nav = document.getElementById('main-nav');
-            
+
             hamburger.addEventListener('click', () => {
                 hamburger.classList.toggle('active');
                 nav.classList.toggle('active');
@@ -791,17 +838,17 @@
             const sections = document.querySelectorAll('main section'); // Target sections inside main
             const navLi = document.querySelectorAll('.main-nav ul li');
 
-            window.addEventListener('scroll', ()=> {
+            window.addEventListener('scroll', () => {
                 let current = 'home'; // Default to home
-                sections.forEach( section => {
+                sections.forEach(section => {
                     const sectionTop = section.offsetTop;
                     // Check if section is in viewport
                     if (pageYOffset >= sectionTop - 150) {
                         current = section.getAttribute('id');
                     }
                 })
-                
-                navLi.forEach( li => {
+
+                navLi.forEach(li => {
                     li.classList.remove('active');
                     if (li.querySelector('a').getAttribute('href').substring(1) === current) {
                         li.classList.add('active');
@@ -816,10 +863,10 @@
             const contactForm = document.getElementById('contact-form');
 
             // Open modal
-            if(openModalBtn) {
+            if (openModalBtn) {
                 openModalBtn.addEventListener('click', (e) => {
                     e.preventDefault();
-                    if(modalOverlay) {
+                    if (modalOverlay) {
                         modalOverlay.classList.add('active');
                     }
                 });
@@ -827,25 +874,25 @@
 
             // Function to close modal
             const closeModal = () => {
-                 if(modalOverlay) {
+                if (modalOverlay) {
                     modalOverlay.classList.remove('active');
-                 }
+                }
             }
 
             // Close modal events
-            if(closeModalBtn) {
+            if (closeModalBtn) {
                 closeModalBtn.addEventListener('click', closeModal);
             }
-            if(modalOverlay) {
+            if (modalOverlay) {
                 modalOverlay.addEventListener('click', (e) => {
                     if (e.target === modalOverlay) {
                         closeModal();
                     }
                 });
             }
-            
+
             // Handle form submission
-            if(contactForm) {
+            if (contactForm) {
                 contactForm.addEventListener('submit', (e) => {
                     // Let the form submit naturally to Formspark
                     // Formspark will handle the redirect to thank-you.html automatically
@@ -858,5 +905,5 @@
     </script>
 
 </body>
-</html>
 
+</html>
