@@ -1,36 +1,35 @@
-
-
-
-
-
-
-
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery - SCFRE</title>
-    <meta name="description" content="View our work in action through our gallery of health checks, food distribution, and community support activities in Jinja, Uganda.">
+    <meta name="description"
+        content="View our work in action through our gallery of health checks, food distribution, and community support activities in Jinja, Uganda.">
     <meta name="robots" content="max-image-preview:large">
 
     <!-- Google Fonts for a modern look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Poppins:wght@400;600;700&display=swap"
+        rel="stylesheet">
 
     <!-- Favicon links (using original logo) -->
-    <link rel="icon" href="https://scfre.org/wp-content/uploads/2021/10/cropped-SCFRE-LOGO-32x32.jpeg" sizes="32x32"/>
-    <link rel="icon" href="https://scfre.org/wp-content/uploads/2021/10/cropped-SCFRE-LOGO-192x192.jpeg" sizes="192x192"/>
-    <link rel="apple-touch-icon" href="https://scfre.org/wp-content/uploads/2021/10/cropped-SCFRE-LOGO-180x180.jpeg"/>
+    <link rel="icon" href="https://scfre.org/wp-content/uploads/2021/10/cropped-SCFRE-LOGO-32x32.jpeg" sizes="32x32" />
+    <link rel="icon" href="https://scfre.org/wp-content/uploads/2021/10/cropped-SCFRE-LOGO-192x192.jpeg"
+        sizes="192x192" />
+    <link rel="apple-touch-icon" href="https://scfre.org/wp-content/uploads/2021/10/cropped-SCFRE-LOGO-180x180.jpeg" />
 
     <style>
         /* CSS Reset and Global Styles */
         :root {
-            --primary-color: #0d47a1; /* A deep, trustworthy blue */
-            --secondary-color: #16173d; /* Original dark background */
-            --accent-color: #ffc107; /* A warm, inviting yellow */
+            --primary-color: #0d47a1;
+            /* A deep, trustworthy blue */
+            --secondary-color: #16173d;
+            /* Original dark background */
+            --accent-color: #ffc107;
+            /* A warm, inviting yellow */
             --text-color: #333;
             --light-text-color: #f4f4f4;
             --background-color: #ffffff;
@@ -40,7 +39,9 @@
             --font-headings: 'Lora', serif;
         }
 
-        *, *::before, *::after {
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -82,19 +83,22 @@
             transform: translateY(-3px);
         }
 
-        h1, h2, h3, h4 {
+        h1,
+        h2,
+        h3,
+        h4 {
             font-family: var(--font-headings);
             line-height: 1.3;
             font-weight: 700;
             color: var(--primary-color);
         }
-        
+
         h2 {
-           font-size: 2.5rem;
-           margin-bottom: 3rem;
-           text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
         }
-        
+
         h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
@@ -103,7 +107,7 @@
         section {
             padding: 80px 0;
         }
-        
+
         img {
             max-width: 100%;
             height: auto;
@@ -118,7 +122,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .header-container {
@@ -135,7 +139,7 @@
             font-weight: 700;
             font-size: 1.2rem;
         }
-        
+
         .logo img {
             width: 50px;
             height: 50px;
@@ -170,7 +174,7 @@
             background-color: var(--primary-color);
             transition: width 0.3s ease;
         }
-        
+
         .main-nav ul li.active a {
             color: var(--primary-color);
         }
@@ -185,7 +189,7 @@
             background: none;
             border: none;
         }
-        
+
         .hamburger .bar {
             display: block;
             width: 25px;
@@ -199,10 +203,12 @@
         #gallery {
             background-color: #fff;
         }
+
         .filter-buttons {
             text-align: center;
             margin-bottom: 40px;
         }
+
         .filter-btn {
             background: none;
             border: 2px solid var(--primary-color);
@@ -214,7 +220,9 @@
             transition: all 0.3s ease;
             font-weight: 600;
         }
-        .filter-btn:hover, .filter-btn.active {
+
+        .filter-btn:hover,
+        .filter-btn.active {
             background-color: var(--primary-color);
             color: #fff;
         }
@@ -225,21 +233,31 @@
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 20px;
         }
+
         .gallery-item {
             cursor: pointer;
             overflow: hidden;
             border-radius: 8px;
             position: relative;
-            display: block; /* Default state */
+            display: block;
+            /* Default state */
             animation: fadeIn 0.5s;
-            aspect-ratio: 4 / 3; /* Maintain a consistent aspect ratio */
+            aspect-ratio: 4 / 3;
+            /* Maintain a consistent aspect ratio */
         }
+
         .gallery-item.hide {
             display: none;
         }
+
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         .gallery-item img {
@@ -248,22 +266,26 @@
             object-fit: cover;
             transition: transform 0.4s ease;
         }
+
         .gallery-item:hover img {
             transform: scale(1.1);
         }
+
         /* Sensitive content blur */
         .gallery-item.sensitive img {
             filter: blur(14px);
             transition: filter 0.3s ease, transform 0.4s ease;
         }
+
         .gallery-item.sensitive.revealed img {
             filter: none;
         }
+
         .gallery-item .sensitive-badge {
             position: absolute;
             top: 10px;
             left: 10px;
-            background: rgba(13,71,161,0.9);
+            background: rgba(13, 71, 161, 0.9);
             color: #fff;
             padding: 6px 10px;
             border-radius: 20px;
@@ -271,21 +293,24 @@
             font-weight: 600;
             pointer-events: none;
         }
+
         .gallery-item.revealed .sensitive-badge {
             display: none;
         }
+
         .gallery-item .overlay {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0, 0, 0, 0.6);
             color: #fff;
             padding: 15px;
             text-align: center;
             opacity: 0;
             transition: opacity 0.4s ease;
         }
+
         .gallery-item:hover .overlay {
             opacity: 1;
         }
@@ -293,7 +318,8 @@
         /* Video Items Styling */
         .gallery-item.video-item {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%;
+            /* 16:9 aspect ratio */
             height: 0;
             overflow: hidden;
             cursor: pointer;
@@ -314,13 +340,14 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0, 0, 0, 0.6);
             color: #fff;
             padding: 15px;
             text-align: center;
             opacity: 0;
             transition: opacity 0.4s ease;
-            pointer-events: none; /* Allow clicks to pass through to iframe */
+            pointer-events: none;
+            /* Allow clicks to pass through to iframe */
         }
 
         .gallery-item.video-item:hover .overlay {
@@ -338,8 +365,9 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.9);
+            background-color: rgba(0, 0, 0, 0.9);
         }
+
         .lightbox-content {
             margin: auto;
             display: block;
@@ -347,10 +375,17 @@
             max-width: 700px;
             animation: zoomIn 0.6s;
         }
+
         @keyframes zoomIn {
-            from {transform:scale(0)} 
-            to {transform:scale(1)}
+            from {
+                transform: scale(0)
+            }
+
+            to {
+                transform: scale(1)
+            }
         }
+
         .lightbox-close {
             position: absolute;
             top: 15px;
@@ -361,7 +396,9 @@
             transition: 0.3s;
             cursor: pointer;
         }
-        .lightbox-close:hover, .lightbox-close:focus {
+
+        .lightbox-close:hover,
+        .lightbox-close:focus {
             color: #bbb;
         }
 
@@ -372,7 +409,7 @@
             padding: 40px 0;
             text-align: center;
         }
-        
+
         .site-footer p {
             font-size: 0.9rem;
         }
@@ -386,13 +423,14 @@
             .main-nav {
                 display: none;
                 position: absolute;
-                top: 75px; /* Height of header */
+                top: 75px;
+                /* Height of header */
                 left: 0;
                 width: 100%;
                 background: white;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             }
-            
+
             .main-nav.active {
                 display: block;
             }
@@ -410,24 +448,26 @@
             .hamburger {
                 display: block;
             }
-            
+
             /* Animate hamburger to 'X' */
             .hamburger.active .bar:nth-child(2) {
                 opacity: 0;
             }
+
             .hamburger.active .bar:nth-child(1) {
                 transform: translateY(8px) rotate(45deg);
             }
+
             .hamburger.active .bar:nth-child(3) {
                 transform: translateY(-8px) rotate(-45deg);
             }
-            
+
             /* Mobile Gallery Layout */
             .gallery-grid {
                 grid-template-columns: 1fr;
                 gap: 15px;
             }
-            
+
             /* Mobile Filter Buttons */
             .filter-buttons {
                 display: flex;
@@ -436,7 +476,7 @@
                 gap: 8px;
                 margin-bottom: 30px;
             }
-            
+
             .filter-btn {
                 padding: 8px 12px;
                 margin: 2px;
@@ -446,20 +486,21 @@
                 max-width: calc(50% - 4px);
                 text-align: center;
             }
-            
+
             /* Mobile Video Items */
             .gallery-item.video-item {
                 margin: 0 auto;
                 max-width: 100%;
                 width: 100%;
             }
-            
+
             .gallery-item.video-item iframe {
                 border-radius: 8px;
             }
         }
     </style>
 </head>
+
 <body>
 
     <header class="site-header">
@@ -497,6 +538,7 @@
                     <button class="filter-btn" data-filter="food">Essential Supplies</button>
                     <button class="filter-btn" data-filter="treatment">Treatment Care</button>
                     <button class="filter-btn" data-filter="video">Videos</button>
+                    <button class="filter-btn" data-filter="supporters">Supporters</button>
                 </div>
                 <div class="gallery-grid">
                     <div class="gallery-item" data-category="food">
@@ -608,24 +650,67 @@
                         <div class="overlay">Treatment Care - 2025</div>
                     </div>
                     <div class="gallery-item video-item" data-category="video">
-                        <iframe src="https://www.youtube.com/embed/j--ovYAAYm4" title="Salma's Care for Rural Elderly - Community Health Initiative" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/j--ovYAAYm4"
+                            title="Salma's Care for Rural Elderly - Community Health Initiative" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
                         <div class="overlay">Community Health Initiative</div>
                     </div>
                     <div class="gallery-item video-item" data-category="video">
-                        <iframe src="https://www.youtube.com/embed/6GKNS_vyDqo" title="Wound Dressing Community Initiative" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/6GKNS_vyDqo"
+                            title="Wound Dressing Community Initiative" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
                         <div class="overlay">Wound Dressing Initiative</div>
                     </div>
                     <div class="gallery-item video-item" data-category="video">
-                        <iframe src="https://www.youtube.com/embed/FDm0mTZqrpY" title="Elderly Care and Support Activities" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/FDm0mTZqrpY"
+                            title="Elderly Care and Support Activities" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
                         <div class="overlay">Elderly Care Activities</div>
                     </div>
                     <div class="gallery-item video-item" data-category="video">
-                        <iframe src="https://www.youtube.com/embed/8zClf1Y-3gE" title="Community Health Outreach Program" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/8zClf1Y-3gE"
+                            title="Community Health Outreach Program" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
                         <div class="overlay">Health Outreach Program</div>
                     </div>
                     <div class="gallery-item video-item" data-category="video">
-                        <iframe src="https://www.youtube.com/embed/_rkn75sc8eg" title="Rural Elderly Support Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/_rkn75sc8eg" title="Rural Elderly Support Services"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
                         <div class="overlay">Rural Elderly Support</div>
+                    </div>
+                    <!-- Supporters -->
+                    <div class="gallery-item" data-category="supporters">
+                        <img src="https://scfre.org/wp-content/uploads/2022/02/dressings-300x169.jpg"
+                            alt="Donation from Suzie">
+                        <div class="overlay">Thank you Suzie (West Way Pharmacy) for the dressings!</div>
+                    </div>
+                    <div class="gallery-item" data-category="supporters">
+                        <img src="https://scfre.org/wp-content/uploads/2022/02/chichele-road-sugery-225x300.jpg"
+                            alt="Donation from Ian">
+                        <div class="overlay">Thank you Ian (Chichele road surgery) for the couches!</div>
+                    </div>
+                    <div class="gallery-item" data-category="supporters">
+                        <img src="https://scfre.org/wp-content/uploads/2022/02/zimmerand-clothes-169x300.jpg"
+                            alt="Donation from Arleen">
+                        <div class="overlay">Thank you Arleen (USA) for the clothes and Zimmer frame</div>
+                    </div>
+                    <div class="gallery-item" data-category="supporters">
+                        <img src="images/thank-you-lysel.jpg" alt="Donation from Lysel">
+                        <div class="overlay">Thank you Lysel for the clothes</div>
+                    </div>
+                    <div class="gallery-item" data-category="supporters">
+                        <img src="images/thank-you-yolanda.jpg" alt="Donation from Yolanda">
+                        <div class="overlay">Thank you Yolanda for the aprons and masks</div>
+                    </div>
+                    <div class="gallery-item" data-category="supporters">
+                        <img src="images/thank-you-yasmin.jpg" alt="Donation from Yasmin">
+                        <div class="overlay">Yasmin thank you for the clothes for school girls</div>
                     </div>
                 </div>
             </div>
@@ -645,11 +730,11 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Mobile navigation toggle
             const hamburger = document.getElementById('hamburger');
             const nav = document.getElementById('main-nav');
-            
+
             hamburger.addEventListener('click', () => {
                 hamburger.classList.toggle('active');
                 nav.classList.toggle('active');
@@ -695,7 +780,7 @@
                     galleryItems.forEach(item => {
                         item.style.display = 'none'; // Hide all items initially
                         if (item.getAttribute('data-category') === filter || filter === 'all') {
-                           item.style.display = 'block'; // Show matched items
+                            item.style.display = 'block'; // Show matched items
                         }
                     });
                 });
@@ -733,10 +818,10 @@
                     lightbox.style.display = 'none';
                 });
             }
-            
+
             if (lightbox) {
                 lightbox.addEventListener('click', (e) => {
-                    if(e.target === lightbox) {
+                    if (e.target === lightbox) {
                         lightbox.style.display = 'none';
                     }
                 });
@@ -746,4 +831,5 @@
     </script>
 
 </body>
+
 </html>
