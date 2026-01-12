@@ -409,6 +409,19 @@
             color: #bbb;
         }
 
+        #lightbox-caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+        }
+
         /* Footer */
         .site-footer {
             background-color: #1a1a1a;
@@ -503,6 +516,12 @@
 
             .gallery-item.video-item iframe {
                 border-radius: 8px;
+            }
+
+            .gallery-item .overlay {
+                opacity: 1;
+                background: rgba(0, 0, 0, 0.7);
+                /* Slightly darker for better readability */
             }
         }
     </style>
@@ -727,6 +746,7 @@
         <div id="gallery-lightbox" class="lightbox-modal">
             <span class="lightbox-close">&times;</span>
             <img class="lightbox-content" id="lightbox-img">
+            <div id="lightbox-caption"></div>
         </div>
     </main>
 
@@ -796,6 +816,7 @@
             // Gallery Lightbox Logic
             const lightbox = document.getElementById('gallery-lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption'); // Get caption element
             const closeLightbox = document.querySelector('.lightbox-close');
 
             galleryItems.forEach(item => {
@@ -817,6 +838,14 @@
                     // Open lightbox for regular or already revealed items
                     lightbox.style.display = 'block';
                     lightboxImg.src = item.querySelector('img').src;
+
+                    // Set caption text from overlay
+                    const overlay = item.querySelector('.overlay');
+                    if (overlay) {
+                        lightboxCaption.textContent = overlay.textContent;
+                    } else {
+                        lightboxCaption.textContent = "";
+                    }
                 });
             });
 
