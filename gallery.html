@@ -302,13 +302,20 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            right: 0;
+            width: 100%;
+            /* Ensure full width */
             background: rgba(0, 0, 0, 0.6);
             color: #fff;
             padding: 15px;
             text-align: center;
             opacity: 0;
             transition: opacity 0.4s ease;
+            z-index: 10;
+            /* Ensure it stays on top of the scaled image */
+            backface-visibility: hidden;
+            /* Prevent rendering glitches */
+            pointer-events: none;
+            /* Prevent flickering on hover boundaries */
         }
 
         .gallery-item:hover .overlay {
