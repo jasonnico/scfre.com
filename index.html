@@ -771,9 +771,36 @@
                                 alt="Donation of clothes and a Zimmer frame">
                         </div>
                     </div>
+                    <!-- Hidden Supporters -->
+                    <div id="hidden-supporters" style="display: none;">
+                        <div class="timeline-item timeline-right">
+                            <div class="timeline-content">
+                                <h4>Lysel</h4>
+                                <p>Thank you for the clothes</p>
+                                <img src="images/thank-you-lysel.jpg" alt="Donation from Lysel">
+                            </div>
+                        </div>
+                        <div class="timeline-item timeline-left">
+                            <div class="timeline-content">
+                                <h4>Yolanda</h4>
+                                <p>Thank you for the aprons and masks</p>
+                                <img src="images/thank-you-yolanda.jpg" alt="Donation from Yolanda">
+                            </div>
+                        </div>
+                        <div class="timeline-item timeline-right">
+                            <div class="timeline-content">
+                                <h4>Yasmin</h4>
+                                <p>Thank you for the clothes for school girls</p>
+                                <img src="images/thank-you-yasmin.jpg" alt="Donation from Yasmin">
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div style="text-align: center; margin-top: 40px;">
-                    <a href="gallery.html" class="btn">View Our Gallery</a>
+                    <button id="show-more-btn" class="btn" style="margin-bottom: 20px;">Show More</button>
+                    <br>
+                    <a href="gallery.html" class="btn" style="background-color: var(--primary-color); color: #fff;">View
+                        Our Gallery</a>
                 </div>
             </div>
         </section>
@@ -887,6 +914,22 @@
                 modalOverlay.addEventListener('click', (e) => {
                     if (e.target === modalOverlay) {
                         closeModal();
+                    }
+                });
+            }
+
+            // Show More Supporters Logic
+            const showMoreBtn = document.getElementById('show-more-btn');
+            const hiddenSupporters = document.getElementById('hidden-supporters');
+
+            if (showMoreBtn && hiddenSupporters) {
+                showMoreBtn.addEventListener('click', () => {
+                    if (hiddenSupporters.style.display === 'none') {
+                        hiddenSupporters.style.display = 'block';
+                        showMoreBtn.textContent = 'Show Less';
+                    } else {
+                        hiddenSupporters.style.display = 'none';
+                        showMoreBtn.textContent = 'Show More';
                     }
                 });
             }
