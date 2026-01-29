@@ -820,7 +820,7 @@
         <div class="modal-content">
             <button id="close-modal" class="close-button">&times;</button>
             <h3>Get In Touch</h3>
-            <form id="contact-form" action="https://submit-form.com/zvy6Za5kC" method="POST">
+            <form id="contact-form" action="https://submit-form.com/PEWuwuFEz" method="POST">
                 <input type="hidden" name="_redirect" value="https://scfre.foundation/thank-you.html">
                 <!-- Honeypot Field -->
                 <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
@@ -975,12 +975,9 @@
                         // Fake success for spam (Shadow ban)
                         setTimeout(() => {
                             submitBtn.textContent = 'Message Sent!';
-                            setTimeout(() => {
-                                closeModal();
-                                contactForm.reset();
-                                submitBtn.disabled = false;
-                                submitBtn.textContent = originalBtnText;
-                            }, 2000);
+                            // Redirect to thank you page to maintain illusion
+                            const redirectUrl = formData.get('_redirect') || 'thank-you.html';
+                            window.location.href = redirectUrl;
                         }, 1000);
                         return;
                     }
@@ -997,12 +994,9 @@
 
                         if (response.ok) {
                             submitBtn.textContent = 'Message Sent!';
-                            setTimeout(() => {
-                                closeModal();
-                                contactForm.reset();
-                                submitBtn.disabled = false;
-                                submitBtn.textContent = originalBtnText;
-                            }, 2000);
+                            // Redirect to thank you page
+                            const redirectUrl = formData.get('_redirect') || 'thank-you.html';
+                            window.location.href = redirectUrl;
                         } else {
                             alert('Something went wrong. Please try again.');
                             submitBtn.disabled = false;
