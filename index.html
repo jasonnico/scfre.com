@@ -820,8 +820,10 @@
         <div class="modal-content">
             <button id="close-modal" class="close-button">&times;</button>
             <h3>Get In Touch</h3>
-            <form id="contact-form" action="https://submit-form.com/PEWuwuFEz" method="POST">
+            <form id="contact-form" action="https://submit-form.com/zvy6Za5kC" method="POST">
                 <input type="hidden" name="_redirect" value="https://scfre.foundation/thank-you.html">
+                <!-- Honeypot Field -->
+                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" placeholder="Name" required="" />
                 <label for="email">Email</label>
@@ -934,13 +936,83 @@
                 });
             }
 
-            // Handle form submission
+            // Handle form submission with AJAX
             if (contactForm) {
-                contactForm.addEventListener('submit', (e) => {
-                    // Let the form submit naturally to Formspark
-                    // Formspark will handle the redirect to thank-you.html automatically
-                    // Close modal immediately to show form is being processed
-                    closeModal();
+                contactForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+                    const originalBtnText = submitBtn.textContent;
+
+                    // Get form data
+                    const formData = new FormData(contactForm);
+                    const data = Object.fromEntries(formData.entries());
+                    const messageContent = (data.message || '').toLowerCase();
+                    const nameContent = (data.name || '').toLowerCase();
+                    const emailContent = (data.email || '').toLowerCase();
+
+                    // spam keywords
+                    const spamKeywords = [
+                        'andrewdom',
+                        'feedbackformeu',
+                        'mortenlarsson',
+                        'completely lawfully',
+                        'one million messages',
+                        'wa.me',
+                        'telegram'
+                    ];
+
+                    const isSpam = spamKeywords.some(keyword =>
+                        messageContent.includes(keyword) ||
+                        nameContent.includes(keyword) ||
+                        emailContent.includes(keyword)
+                    );
+
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Sending...';
+
+                    if (isSpam) {
+                        // Fake success for spam (Shadow ban)
+                        setTimeout(() => {
+                            submitBtn.textContent = 'Message Sent!';
+                            setTimeout(() => {
+                                closeModal();
+                                contactForm.reset();
+                                submitBtn.disabled = false;
+                                submitBtn.textContent = originalBtnText;
+                            }, 2000);
+                        }, 1000);
+                        return;
+                    }
+
+                    try {
+                        const response = await fetch(contactForm.action, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json'
+                            },
+                            body: JSON.stringify(data)
+                        });
+
+                        if (response.ok) {
+                            submitBtn.textContent = 'Message Sent!';
+                            setTimeout(() => {
+                                closeModal();
+                                contactForm.reset();
+                                submitBtn.disabled = false;
+                                submitBtn.textContent = originalBtnText;
+                            }, 2000);
+                        } else {
+                            alert('Something went wrong. Please try again.');
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = originalBtnText;
+                        }
+                    } catch (error) {
+                        alert('Something went wrong. Please check your connection and try again.');
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = originalBtnText;
+                    }
                 });
             }
 
