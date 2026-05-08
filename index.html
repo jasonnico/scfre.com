@@ -260,6 +260,117 @@
             margin-bottom: 0;
         }
 
+        /* Stories Section */
+        .stories-section {
+            background-color: var(--background-color);
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .story-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .story-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .story-card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .story-card-content h3 {
+            margin-bottom: 10px;
+        }
+
+        .story-card-content p {
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .story-card-content .btn {
+            align-self: flex-start;
+            margin-top: auto;
+        }
+
+        /* Story Modal Styles */
+        .story-modal-content {
+            max-width: 800px;
+            width: 95%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .story-modal-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .story-modal-images img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* Sensitive Content Styles */
+        .sensitive-container {
+            position: relative;
+            cursor: pointer;
+            width: 100%;
+            height: 200px; /* Matches grid images */
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .sensitive-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(14px);
+            transition: filter 0.3s ease;
+            border-radius: 0; /* Handled by container overflow */
+        }
+
+        .sensitive-container.revealed img {
+            filter: none;
+        }
+
+        .sensitive-container .sensitive-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(13, 71, 161, 0.9);
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            pointer-events: none;
+        }
+
+        .sensitive-container.revealed .sensitive-badge {
+            display: none;
+        }
+
         /* What We Do Section */
         .services-grid {
             display: grid;
@@ -674,6 +785,30 @@
             </div>
         </section>
 
+        <section id="stories" class="stories-section">
+            <div class="container">
+                <h2>Our Impact Stories</h2>
+                <div class="stories-grid">
+                    <div class="story-card">
+                        <img src="story%201/PHOTO-2026-04-21-10-25-21-before.jpg" alt="Mafabi">
+                        <div class="story-card-content">
+                            <h3>Mafabi's Story</h3>
+                            <p>Mafabi was living together with his elderly mother. He decided to move to Kampala to look for a job to support his family...</p>
+                            <button class="btn open-story-modal" data-story="mafabi-modal">Read Full Story</button>
+                        </div>
+                    </div>
+                    <div class="story-card">
+                        <img src="story%202/PHOTO-2026-05-08-21-46-27.jpg" alt="Namuli Zaliya">
+                        <div class="story-card-content">
+                            <h3>Namuli Zaliya's Story</h3>
+                            <p>Namuli Zaliya, 94 years old woman says lived a miserable life during her marriage after realizing that she was barren...</p>
+                            <button class="btn open-story-modal" data-story="namuli-modal">Read Full Story</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="what-we-do">
             <div class="container">
                 <h2>What We Do</h2>
@@ -814,6 +949,44 @@
             </div>
         </section>
     </main>
+
+    <!-- Story Modals -->
+    <div id="mafabi-modal" class="modal-overlay story-overlay">
+        <div class="modal-content story-modal-content">
+            <button class="close-button story-close">&times;</button>
+            <h3>Mafabi's Story</h3>
+            <div class="story-modal-images">
+                <img src="story%201/PHOTO-2026-04-21-10-25-21-before.jpg" alt="Mafabi Before">
+                <img src="story%201/PHOTO-2026-04-21-10-27-47-after.jpg" alt="Mafabi After">
+                <div class="sensitive-container">
+                    <img src="story%201/WhatsApp%20Image%202026-04-21%20at%2010.27.13-before.jpeg" alt="Mafabi Image 1">
+                    <div class="sensitive-badge">Sensitive - Tap to reveal</div>
+                </div>
+                <img src="story%201/WhatsApp%20Image%202026-04-21%20at%2010.27.1d3-getting-treatment.jpeg" alt="Mafabi Treatment">
+            </div>
+            <p>Mafabi was living together with his elderly mother. He decided to move to Kampala to look for a job to support his family. He was lucky and got a job as a porter at a construction site and started to take care of his family as his mother had separated with the father because of domestic violence. He had worked for 3 years and he accidentally fell from the 3rd floor of the building and he injured his back and the legs and he was hospitalized for one month and discharged. He was on walking sticks for more than 3 months and could not support himself or his family. After recovering a bit, he went back to work.</p>
+            <p>The situation was not the same as before, he was weak but the boss sympathized with him and gave him what they thought could be a lighter task; he transferred him from being a porter to join the cooking team at the site. Mafabi says he worked for 6 months and started feeling dizzy and one day, as he was preparing porridge, became unconscious and fell down and was rushed to Mulago referral hospital, only to wake up and realized that his hand and a part of thigh had got burnt. He was hospitalized for 6 months but he had not recovered because of limited finances. He was informed that his left hand needed amputation as it was rotting. Upon hearing the news Mafabi was uncomfortable and run away from the hospital because he believed that his hand could heal and work again. He came back to the village but he had no assistance. His mother was elderly and could not help, the treatment was not enough and the hand continued to rot and smell badly. He was isolated, humiliated because of the bad smell. He said that society misjudged him alleging that his wounds were because of him being bewitched. As a result, he became depressed and turned to drinking alcohol.</p>
+            <p>Mafabi had lost hope of healing until the day when Salma’s Care for Rural Elderly identified him as shown in photos and dressed his left hand. After a few dressings, his hand started to heal as shown on the photos and eventually his wounds healed completely.</p>
+            <p>Although he is glad that his left hand healed, he still struggles because he is dependent on his right hand only as his left hand is still weak. He lacks basic needs and cannot support himself and family.</p>
+        </div>
+    </div>
+
+    <div id="namuli-modal" class="modal-overlay story-overlay">
+        <div class="modal-content story-modal-content">
+            <button class="close-button story-close">&times;</button>
+            <h3>Namuli Zaliya's Story</h3>
+            <div class="story-modal-images">
+                <img src="story%202/PHOTO-2026-05-08-21-46-27.jpg" alt="Namuli Zaliya 1">
+                <img src="story%202/PHOTO-2026-05-08-21-46-27%202.jpg" alt="Namuli Zaliya 2">
+                <img src="story%202/PHOTO-2026-05-08-21-46-27%203.jpg" alt="Namuli Zaliya 3">
+                <img src="story%202/PHOTO-2026-05-08-21-46-27%204.jpg" alt="Namuli Zaliya 4">
+            </div>
+            <p>Namuli Zaliya, 94 years old woman says lived a miserable life during her marriage after realizing that she was barren. She got married twice.</p>
+            <p>Being of Muslim faith, Namuli says she was so proud being a moslem and she enjoyed her teenager times so much as she was one of the best performers (dancer in Islamic culture) always representing their Mosque during competitions. She loves giving stories about dancing competitions, Namuli wears an overwhelming smile and remembers everything about her child, teenage and adult life.</p>
+            <p>Namuli finally settled in the land that her mother bought for her because here in African if you do not bear children in marriage, a woman is not entitled to her husband’s share so, the mother knew it and planned for her. She used that land to grow crops for both home use and sold some for survival, she used to rear some cows too. As she grew older, she weakened and could not continue to use the land as she could before. She could no longer grow crops and rear animals and since she did not have anyone near to support her financially, she resorted to selling off small portions of her land to survive. All the land was almost sold out and she was selling it cheaply because she thought that welcoming them on her land, they would be helpful to her in the time of need which is not as she thought. She says she only has one neighbor who checks on her occasionally. She’s currently struggling to meet her basic needs of daily living as she lives alone, has swollen bilateral lower legs. She lives alone, with her cat.</p>
+            <p>SCFRE team tries to visit Namuli once a week. We help her with her daily activities of living and just sit with her giving her company. We recently put solar for her so that she could have power at night. We recently discovered that she has no proper toilet facilities and are trying to collect funds to build her a toilet.</p>
+        </div>
+    </div>
 
     <div id="contact-modal-overlay" class="modal-overlay">
         <div class="modal-content">
@@ -1008,6 +1181,48 @@
                     }
                 });
             }
+
+            // Story Modals Logic
+            const openStoryBtns = document.querySelectorAll('.open-story-modal');
+            const storyOverlays = document.querySelectorAll('.story-overlay');
+            const storyCloseBtns = document.querySelectorAll('.story-close');
+
+            openStoryBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetModalId = btn.getAttribute('data-story');
+                    const targetModal = document.getElementById(targetModalId);
+                    if (targetModal) {
+                        targetModal.classList.add('active');
+                    }
+                });
+            });
+
+            const closeAllStoryModals = () => {
+                storyOverlays.forEach(overlay => {
+                    overlay.classList.remove('active');
+                });
+            };
+
+            storyCloseBtns.forEach(btn => {
+                btn.addEventListener('click', closeAllStoryModals);
+            });
+
+            storyOverlays.forEach(overlay => {
+                overlay.addEventListener('click', (e) => {
+                    if (e.target === overlay) {
+                        closeAllStoryModals();
+                    }
+                });
+            });
+
+            // Sensitive Images Logic
+            const sensitiveContainers = document.querySelectorAll('.sensitive-container');
+            sensitiveContainers.forEach(container => {
+                container.addEventListener('click', function() {
+                    this.classList.toggle('revealed');
+                });
+            });
 
         });
     </script>
